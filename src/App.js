@@ -1,20 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-
-import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import JournalEntryList from './components/JournalEntryList';
 import JournalEntryForm from './components/JournalEntryForm';
+import CommentList from './components/CommentList';
+import './App.css';
 
-const App = () => {
+function App() {
   return (
     <Router>
-      <Navbar />
-      <Route path="/" exact component={Home} />
-      <Route path="/entries" exact component={JournalEntryList} />
-      <Route path="/entries/new" exact component={JournalEntryForm} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/entries" element={<JournalEntryList />} />
+        <Route path="/add-entry" element={<JournalEntryForm />} />
+        <Route path="/entries/:id/comments" element={<CommentList />} />
+      </Routes>
     </Router>
   );
-};
+}
 
 export default App;

@@ -9,9 +9,10 @@ const JournalEntryForm = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/api/entries', { title, content });
-      console.log('Entry created:', response.data.entry);
-
+      await axios.post('http://localhost:8000/api/entries', {
+        title,
+        content,
+      });
       setTitle('');
       setContent('');
     } catch (error) {
@@ -21,7 +22,7 @@ const JournalEntryForm = () => {
 
   return (
     <div>
-      <h2>New Journal Entry</h2>
+      <h2>Add New Journal Entry</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Title:</label>
@@ -45,4 +46,3 @@ const JournalEntryForm = () => {
 };
 
 export default JournalEntryForm;
-

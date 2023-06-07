@@ -6,7 +6,6 @@ const SignInForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your sign in logic here
     console.log('Sign in form submitted');
   };
 
